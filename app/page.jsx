@@ -38,7 +38,7 @@ export default function Home() {
   return (
     <>
       <h2 className="text-center text-lg font-bold py-2">
-        Catalogo de productos
+        Catalogo de Productos
       </h2>
       {isLoading && <LoadingSpinner />}
       <div className="w-full py-2 pb-4 flex justify-center">
