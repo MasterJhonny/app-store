@@ -7,9 +7,9 @@ const CardProduct = ({ item }) => {
   const copyText = () => {
     // Copia el texto al portapapeles
     navigator.clipboard
-      .writeText(item.name)
+      .writeText(item.detail)
       .then(function () {
-        console.log("Texto copiado al portapapeles: " + item.name);
+        console.log("Texto copiado al portapapeles: " + item.detail);
       })
       .catch(function (err) {
         console.error("Error al copiar el texto: ", err);
@@ -19,7 +19,7 @@ const CardProduct = ({ item }) => {
   return (
     <Card
       shadow="sm"
-      key={item.id}
+      key={item.detail}
       isPressable
       onPress={() => {
         console.log("item pressed!");
@@ -27,20 +27,20 @@ const CardProduct = ({ item }) => {
       }}
     >
       <CardBody className="overflow-visible p-0">
+        <p className="font-bold p-2 rounded-full text-base text-center">
+          Bs. {item.price}
+        </p>
         <Image
           shadow="sm"
-          radius="lg"
+          radius="none"
           width="100%"
-          alt={item.name}
+          alt={item.detail}
           className="w-full object-cover h-[140px]"
-          src={item.img}
+          src={item.image_url}
         />
       </CardBody>
       <CardFooter className="text-small justify-between">
-        <p className="font-semibold">{item.name}</p>
-        <p className="font-bold text-black bg-slate-200 p-2 rounded-full text-lg">
-          {item.price}
-        </p>
+        <p className="font-semibold">{item.detail}</p>
       </CardFooter>
     </Card>
   );
